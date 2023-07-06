@@ -19,8 +19,10 @@ add_subdirectory(submodules/qlementine)
 
 set(PROJECT_SOURCES
         src/main.cpp
-        src/mainwindow.cpp
-        src/mainwindow.h
+	src/mainwindow.cpp
+	src/mainwindow.h
+	src/widgets/note_tile.cpp
+	src/widgets/note_tile.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

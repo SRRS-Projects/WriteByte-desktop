@@ -10,7 +10,7 @@
 #include <QLineEdit>
 #include <QPlainTextEdit>
 #include <QPushButton>
-
+#include "widgets/note_tile.h"
 
 
 using namespace oclero;
@@ -35,6 +35,8 @@ private:
 
 
     QString m_windowTitle;
+
+    NoteTile *m_noteTile;
 
 };
 
