@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.17.5)
 
-set(PROJECT_NAME WriteBite-desktop)
+set(PROJECT_NAME WriteByte-desktop)
 project(${PROJECT_NAME} VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
@@ -19,10 +19,17 @@ add_subdirectory(submodules/qlementine)
 
 set(PROJECT_SOURCES
         src/main.cpp
-	src/mainwindow.cpp
 	src/mainwindow.h
-	src/widgets/note_tile.cpp
+	src/mainwindow.cpp
 	src/widgets/note_tile.h
+	src/widgets/note_tile.cpp
+	src/network/web_manager.h
+	src/network/web_manager.cpp
+	src/entity/singleton.h
+	src/entity/note.h
+	src/entity/note.cpp
+	src/data/data_manager.h
+	src/data/data_manager.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

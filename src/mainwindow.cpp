@@ -1,14 +1,19 @@
 
 #include "mainwindow.h"
+#include "network/web_manager.h"
 
 using namespace oclero;
 
 MainWindow::MainWindow(QWidget *parent)
     : qlementine::FramelessWindow(parent)
-    , m_windowTitle("WriteBite")
+    , m_windowTitle("WriteByte")
 {
     setWindowTitle(m_windowTitle);
     resize(500, 300);
+
+    //g_WebManager::Instance();
+    //g_WebManager::Instance()->test();
+
 
     m_globalScrollArea = new QScrollArea(this);
     m_windowContent = new QWidget(m_globalScrollArea);
@@ -45,6 +50,12 @@ MainWindow::MainWindow(QWidget *parent)
 
     /* Connections */
 
+    QNetworkReply *r = g_WebManager::Instance()->requestNotes();
+    connect(r, &QNetworkReply::finished, this, [this, r]()
+            {
+                onGetNotes(r);
+            });
+
 }
 
 MainWindow::~MainWindow()
@@ -54,6 +65,11 @@ MainWindow::~MainWindow()
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     qlementine::FramelessWindow::closeEvent(event);
+}
+
+void MainWindow::onGetNotes(QNetworkReply *reply)
+{
+    qDebug() << reply->readAll();
 }
 
 

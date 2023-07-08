@@ -10,6 +10,8 @@
 #include <QLineEdit>
 #include <QPlainTextEdit>
 #include <QPushButton>
+#include <QNetworkReply>
+
 #include "widgets/note_tile.h"
 
 
@@ -23,20 +25,26 @@ class MainWindow : public qlementine::FramelessWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
 protected:
     void closeEvent(QCloseEvent *event) override;
+
 private slots:
 
 private:
+    void onGetNotes(QNetworkReply *reply);
+
+    QString m_windowTitle;
+
     QScrollArea *m_globalScrollArea;
     QWidget *m_windowContent;
 
     QGridLayout *m_windowContentLay;
 
 
-    QString m_windowTitle;
 
     NoteTile *m_noteTile;
+
 
 };
 
