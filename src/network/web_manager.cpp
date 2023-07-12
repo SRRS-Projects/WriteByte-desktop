@@ -13,9 +13,9 @@ WebManager::WebManager(QObject *parent)
 
 WebManager::~WebManager() {}
 
-QNetworkReply *WebManager::requestNotes()
+void WebManager::requestNotes()
 {
-    return m_networkAccessManager->get(QNetworkRequest(QUrl("https://hrai.space/api/v1/get/followed/1")));
+    QNetworkReply *reply = m_networkAccessManager->get(QNetworkRequest(QUrl("https://hrai.space/api/v1/get/followed/1")));
 }
 
 

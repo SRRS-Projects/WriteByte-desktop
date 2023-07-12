@@ -18,6 +18,8 @@ public:
     virtual ~DataManager();
 
 
+    QHash<int, Note *> &notes();
+
 signals:
 
 

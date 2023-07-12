@@ -17,13 +17,13 @@ public:
     explicit WebManager(QObject *parent = nullptr);
     virtual ~WebManager();
 
-    QNetworkReply* requestNotes();
+    void requestNotes();
 
 signals:
     void onGetNotes();
 
 private slots:
-    void _onGetNotes(QNetworkReply *reply);
+    void onGetNotesSlot(QNetworkReply *reply);
 
 private:
     QNetworkAccessManager *m_networkAccessManager;

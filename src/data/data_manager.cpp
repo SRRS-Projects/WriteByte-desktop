@@ -12,6 +12,11 @@ DataManager::DataManager(QObject *parent)
 
 DataManager::~DataManager() {}
 
+QHash<int, Note *> &DataManager::notes()
+{
+    return m_notes;
+}
+
 
 
 
